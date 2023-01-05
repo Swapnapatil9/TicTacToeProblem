@@ -33,6 +33,21 @@ public class TicTacToeGame {
         System.out.println("----------");
         System.out.println(board[7] +" | "+ board[8] + " | " + board[9]);
     }
+    static void userInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose the position b/w (1 to 9): ");
+        int user = sc.nextInt();
+        if (user > 9 || user < 1) {
+            System.out.println("Invalid input: ");
+            userInput();
+        }
+        if (board[user] == ' ') {
+            board[user] = playerSymbol;
+        } else {
+            System.out.println("Its not Empty");
+            userInput();
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Tic-Tac-Toe Game");
         createBoard();
