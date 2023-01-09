@@ -43,8 +43,18 @@ public class TicTacToeGame {
         }
         if (board[user] == ' ') {
             board[user] = playerSymbol;
+            showBoard();
         } else {
             System.out.println("Its not Empty");
+            userInput();
+        }
+    }
+    static void firstToStartGame() {
+        int toss = (int) (Math.random() * 10) % 2;
+        if (toss == 0) {
+            System.out.println("Computer starts the play first.");
+        } else {
+            System.out.println("Player starts the game.");
             userInput();
         }
     }
@@ -53,5 +63,6 @@ public class TicTacToeGame {
         createBoard();
         assignSymbol();
         showBoard();
+        firstToStartGame();
     }
 }
