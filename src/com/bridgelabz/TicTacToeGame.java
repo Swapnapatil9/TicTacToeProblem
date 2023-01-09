@@ -43,11 +43,33 @@ public class TicTacToeGame {
         }
         if (board[user] == ' ') {
             board[user] = playerSymbol;
-            showBoard();
         } else {
             System.out.println("Its not Empty");
             userInput();
         }
+
+        if(checkWinner(playerSymbol)){
+            System.out.println("Player wins.");
+
+        }else{
+            showBoard();
+            System.out.println("Computers chance: ");
+        }
+    }
+
+    static boolean checkWinner(char symbol) {
+        if ((board[1] == symbol && board[2] == symbol && board[3] == symbol) ||
+                (board[1] == symbol && board[4] == symbol && board[7] == symbol) ||
+                (board[1] == symbol && board[5] == symbol && board[9] == symbol) ||
+                (board[2] == symbol && board[5] == symbol && board[8] == symbol) ||
+                (board[3] == symbol && board[6] == symbol && board[9] == symbol) ||
+                (board[3] == symbol && board[5] == symbol && board[7] == symbol) ||
+                (board[4] == symbol && board[5] == symbol && board[6] == symbol) ||
+                (board[7] == symbol && board[8] == symbol && board[9] == symbol)) {
+            showBoard();
+            return true;
+        }
+        return false;
     }
     static void firstToStartGame() {
         int toss = (int) (Math.random() * 10) % 2;
