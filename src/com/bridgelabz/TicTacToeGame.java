@@ -50,10 +50,27 @@ public class TicTacToeGame {
 
         if(checkWinner(playerSymbol)){
             System.out.println("Player wins.");
-
         }else{
             showBoard();
             System.out.println("Computers chance: ");
+            computerInput();
+        }
+    }
+    static void computerInput(){
+        int computerMove = (int) (Math.random() * 9) + 1;
+        if(board[computerMove] == ' '){
+            board[computerMove] = computerSymbol;
+        }else{
+            System.out.println("Its not Empty");
+            computerInput();
+        }
+        if(checkWinner(computerSymbol)){
+            System.out.println("Computer wins.");
+
+        }else{
+            showBoard();
+            System.out.println("Player chance: ");
+            userInput();
         }
     }
 
